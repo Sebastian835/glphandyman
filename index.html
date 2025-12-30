@@ -1,1 +1,1060 @@
-hola mundo
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="./img/logo.ico">
+    <title>GLP Handyman Inc. - Professional Handyman Services in New York</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #1a1a1a;
+            --secondary-color: #d32f2f;
+            --accent-color: #ffffff;
+            --text-light: #f5f5f5;
+            --text-dark: #333;
+            --gray-bg: #f8f9fa;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+        }
+
+        /* Navigation */
+        nav {
+            background: var(--primary-color);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: var(--shadow);
+        }
+
+        nav .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        nav .logo-placeholder {
+            width: 60px;
+            height: 60px;
+            background: var(--accent-color);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: var(--primary-color);
+            font-size: 1.5rem;
+        }
+
+        nav .company-name {
+            color: var(--accent-color);
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: var(--accent-color);
+            text-decoration: none;
+            transition: color 0.3s;
+            font-weight: 500;
+        }
+
+        nav a:hover {
+            color: var(--secondary-color);
+        }
+
+        .logo-placeholder img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        /* Mobile Menu Toggle */
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--accent-color);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #d32f2f 0%, #1a1a1a 100%) !important;
+            color: var(--accent-color);
+            padding: 6rem 2rem;
+            text-align: center;
+        }
+
+        .hero .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero .tagline {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            font-style: italic;
+            color: var(--secondary-color);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+            line-height: 1.8;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: var(--secondary-color);
+            color: var(--accent-color);
+            padding: 1rem 2.5rem;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: all 0.3s;
+            box-shadow: var(--shadow);
+        }
+
+        .cta-button:hover {
+            background: #b71c1c;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Section Styles */
+        section {
+            padding: 4rem 2rem;
+        }
+
+        section:nth-child(even) {
+            background: var(--gray-bg);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+            position: relative;
+            padding-bottom: 1rem;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: var(--secondary-color);
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 3rem;
+        }
+
+        /* About Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .about-box {
+            background: var(--accent-color);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+        }
+
+        .about-box h3 {
+            color: var(--secondary-color);
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .about-box p {
+            line-height: 1.8;
+            color: #555;
+        }
+
+        /* Benefits Grid */
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .benefit-card {
+            background: var(--accent-color);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .benefit-card .icon {
+            font-size: 3rem;
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+        }
+
+        .benefit-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        /* Services Section */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .service-card {
+            background: var(--accent-color);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .service-card h3 {
+            color: var(--secondary-color);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            border-bottom: 2px solid var(--secondary-color);
+            padding-bottom: 0.5rem;
+        }
+
+        .service-card ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .service-card li {
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .service-card li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--secondary-color);
+            font-weight: bold;
+        }
+
+        /* Gallery Carousel */
+        .carousel-container {
+            position: relative;
+            max-width: 1000px;
+            margin: 3rem auto;
+            overflow: hidden;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .carousel-wrapper {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .carousel-slide {
+            min-width: 100%;
+            height: 700px;
+            background: #000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .carousel-slide img {
+            width: auto;
+            height: auto;
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+
+        .carousel-placeholder {
+            color: #999;
+            font-size: 1.2rem;
+            text-align: center;
+        }
+
+        /* Carousel Controls */
+        .carousel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 1rem 1.5rem;
+            cursor: pointer;
+            font-size: 1.5rem;
+            z-index: 10;
+            transition: background 0.3s;
+            border-radius: 5px;
+        }
+
+        .carousel-btn:hover {
+            background: rgba(0, 0, 0, 0.8);
+        }
+
+        .carousel-btn.prev {
+            left: 1rem;
+        }
+
+        .carousel-btn.next {
+            right: 1rem;
+        }
+
+        /* Carousel Indicators */
+        .carousel-indicators {
+            position: absolute;
+            bottom: 1rem;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 0.5rem;
+            z-index: 10;
+        }
+
+        .indicator {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .indicator.active {
+            background: var(--secondary-color);
+        }
+
+        /* Carousel Counter */
+        .carousel-counter {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            z-index: 10;
+        }
+
+        /* Contact Section */
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .contact-info {
+            background: var(--accent-color);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: start;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .contact-item .icon {
+            font-size: 2rem;
+            color: var(--secondary-color);
+            min-width: 40px;
+        }
+
+        .contact-item h3 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-item p {
+            color: #555;
+        }
+
+        .contact-item a {
+            color: var(--secondary-color);
+            text-decoration: none;
+        }
+
+        .contact-item a:hover {
+            text-decoration: underline;
+        }
+
+        .contact-map {
+            background: var(--accent-color);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            height: 100%;
+            min-height: 450px;
+        }
+
+        .contact-map iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary-color);
+            color: var(--accent-color);
+            text-align: center;
+            padding: 2rem;
+        }
+
+        footer .tagline {
+            font-size: 1.5rem;
+            color: var(--secondary-color);
+            font-style: italic;
+            margin-bottom: 1rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+
+            nav ul {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: var(--primary-color);
+                flex-direction: column;
+                padding: 1rem;
+                gap: 0;
+            }
+
+            nav ul.active {
+                display: flex;
+            }
+
+            nav ul li {
+                padding: 0.5rem 0;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero .tagline {
+                font-size: 1.2rem;
+            }
+
+            .about-content,
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .carousel-btn {
+                padding: 0.75rem 1rem;
+                font-size: 1.2rem;
+            }
+
+            .carousel-btn.prev {
+                left: 0.5rem;
+            }
+
+            .carousel-btn.next {
+                right: 0.5rem;
+            }
+
+            .carousel-counter {
+                font-size: 0.8rem;
+                padding: 0.4rem 0.8rem;
+            }
+        }
+
+        /* Smooth Scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <div class="logo-container">
+                <div class="logo-placeholder">
+                    <img src="img/logo.png">
+                </div>
+                <span class="company-name">GLP Handyman Inc.</span>
+            </div>
+            <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+            <ul id="navMenu">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <h1>Professional Handyman Services</h1>
+            <p class="tagline">"Detail Makes the Difference."</p>
+            <p>Reliable handyman services delivering clean finishes, quality workmanship, and attention to detail for
+                every project, big or small.</p>
+            <a href="#contact" class="cta-button">Get a Free Quote</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <h2 class="section-title">Who We Are</h2>
+            <p class="section-subtitle">Professional handyman company serving New York</p>
+
+            <div class="about-content">
+                <div class="about-box">
+                    <h3>About GLP Handyman Inc.</h3>
+                    <p>GLP Handyman, Inc is a professional handyman company focused on delivering practical, efficient,
+                        and high-quality solutions for residential and small commercial projects. We specialize in
+                        interior improvements, repairs, and installations that enhance both functionality and
+                        appearance.</p>
+                    <p style="margin-top: 1rem;">Our work is defined by precision, clean execution, and respect for our
+                        clients' spaces. Every project—whether it's a simple installation or a full interior update—is
+                        handled with care, responsibility, and attention to detail. We believe that quality work doesn't
+                        have to be complicated, it just has to be done right.</p>
+                </div>
+
+                <div class="about-box">
+                    <h3>Our Mission</h3>
+                    <p>Our mission is to provide dependable handyman services with high-quality finishes, clear
+                        communication, and results that add real value to our clients' homes and properties.</p>
+
+                    <h3 style="margin-top: 2rem;">Our Vision</h3>
+                    <p>To become a trusted handyman service in New York, recognized for consistency, craftsmanship, and
+                        long-lasting results in every project we complete.</p>
+                </div>
+            </div>
+
+            <h3 class="section-title" style="margin-top: 4rem; font-size: 2rem;">Benefits of Choosing GLP Handyman Inc.
+            </h3>
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="icon">⭐</div>
+                    <h3>Quality</h3>
+                    <p>Excellence in every project we complete</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="icon">🔧</div>
+                    <h3>Experience</h3>
+                    <p>More than 5 years in the industry</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="icon">👷</div>
+                    <h3>Professionalism</h3>
+                    <p>Professional team at your service</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="icon">✓</div>
+                    <h3>Reliable Service</h3>
+                    <p>Detail-oriented and dependable team</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="icon">🏠</div>
+                    <h3>Multiple Services</h3>
+                    <p>All services under one trusted company</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="icon">😊</div>
+                    <h3>Customer Satisfaction</h3>
+                    <p>Your satisfaction is always our priority</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services">
+        <div class="container">
+            <h2 class="section-title">What We Do</h2>
+            <p class="section-subtitle">Comprehensive handyman services for your home and business</p>
+
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3>Painting Services</h3>
+                    <ul>
+                        <li>Interior painting</li>
+                        <li>Surface preparation and spackling</li>
+                        <li>Clean and detailed finishes</li>
+                        <li>Door and cabinet painting</li>
+                        <li>Baseboard painting</li>
+                    </ul>
+                </div>
+
+                <div class="service-card">
+                    <h3>Carpentry & Installations</h3>
+                    <ul>
+                        <li>Door installation</li>
+                        <li>Moldings and trims</li>
+                        <li>Shelves and custom installations</li>
+                        <li>Cabinet installations</li>
+                    </ul>
+                </div>
+
+                <div class="service-card">
+                    <h3>Flooring Services</h3>
+                    <ul>
+                        <li>Vinyl flooring installation</li>
+                        <li>Hardwood floor installation</li>
+                        <li>Floor removal and replacement</li>
+                        <li>Professional finishing</li>
+                    </ul>
+                </div>
+
+                <div class="service-card">
+                    <h3>Drywall & Surface Repair</h3>
+                    <ul>
+                        <li>Sheetrock installation</li>
+                        <li>Spackle and wall repairs</li>
+                        <li>Surface leveling and finishing</li>
+                        <li>Professional texture matching</li>
+                    </ul>
+                </div>
+
+                <div class="service-card">
+                    <h3>Tile & Ceramic Work</h3>
+                    <ul>
+                        <li>Ceramic tile installation</li>
+                        <li>Bathroom tile work</li>
+                        <li>Kitchen backsplash</li>
+                        <li>Repairs and replacements</li>
+                    </ul>
+                </div>
+
+                <div class="service-card">
+                    <h3>Demolition Services</h3>
+                    <ul>
+                        <li>Interior demolition</li>
+                        <li>Safe material removal</li>
+                        <li>Clean site management</li>
+                        <li>Debris disposal</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Carousel Section -->
+    <section id="gallery">
+        <div class="container">
+            <h2 class="section-title">Work Completed by GLP Handyman Inc.</h2>
+            <p class="section-subtitle">Browse our portfolio of quality craftsmanship</p>
+
+            <div class="carousel-container">
+                <div class="carousel-counter">
+                    <span id="currentSlide">1</span> / <span id="totalSlides">25</span>
+                </div>
+
+                <button class="carousel-btn prev" onclick="changeSlide(-1)">❮</button>
+                <button class="carousel-btn next" onclick="changeSlide(1)">❯</button>
+
+                <div class="carousel-wrapper" id="carouselWrapper">
+
+                    <!-- Slide 1 -->
+                    <div class="carousel-slide">
+                        <img src="img/1.jpeg">
+                    </div>
+
+                    <!-- Slide 2 -->
+                    <div class="carousel-slide">
+                        <img src="img/2.jpeg">
+                    </div>
+
+                    <!-- Slide 3 -->
+                    <div class="carousel-slide">
+                        <img src="img/3.jpeg">
+                    </div>
+
+                    <!-- Slide 4 -->
+                    <div class="carousel-slide">
+                        <img src="img/4.jpeg">
+                    </div>
+
+                    <!-- Slide 5 -->
+                    <div class="carousel-slide">
+                        <img src="img/5.jpeg">
+                    </div>
+
+                    <!-- Slide 6 -->
+                    <div class="carousel-slide">
+                        <img src="img/6.jpeg">
+                    </div>
+
+                    <!-- Slide 7 -->
+                    <div class="carousel-slide">
+                        <img src="img/7.jpeg">
+                    </div>
+
+                    <!-- Slide 8 -->
+                    <div class="carousel-slide">
+                        <img src="img/8.jpeg">
+                    </div>
+
+                    <!-- Slide 9 -->
+                    <div class="carousel-slide">
+                        <img src="img/9.jpeg">
+                    </div>
+
+                    <!-- Slide 10 -->
+                    <div class="carousel-slide">
+                        <img src="img/10.jpeg">
+                    </div>
+
+                    <!-- Slide 11 -->
+                    <div class="carousel-slide">
+                        <img src="img/11.jpeg">
+                    </div>
+
+                    <!-- Slide 12 -->
+                    <div class="carousel-slide">
+                        <img src="img/12.jpeg">
+                    </div>
+
+                    <!-- Slide 13 -->
+                    <div class="carousel-slide">
+                        <img src="img/13.jpeg">
+                    </div>
+
+                    <!-- Slide 14 -->
+                    <div class="carousel-slide">
+                        <img src="img/14.jpeg">
+                    </div>
+
+                    <!-- Slide 15 -->
+                    <div class="carousel-slide">
+                        <img src="img/15.jpeg">
+                    </div>
+
+                    <!-- Slide 16 -->
+                    <div class="carousel-slide">
+                        <img src="img/16.jpeg">
+                    </div>
+
+                    <!-- Slide 17 -->
+                    <div class="carousel-slide">
+                        <img src="img/17.jpeg">
+                    </div>
+
+                    <!-- Slide 18 -->
+                    <div class="carousel-slide">
+                        <img src="img/18.jpeg">
+                    </div>
+
+                    <!-- Slide 19 -->
+                    <div class="carousel-slide">
+                        <img src="img/19.jpeg">
+                    </div>
+
+                    <!-- Slide 20 -->
+                    <div class="carousel-slide">
+                        <img src="img/20.jpeg">
+                    </div>
+
+                    <!-- Slide 21 -->
+                    <div class="carousel-slide">
+                        <img src="img/21.jpeg">
+                    </div>
+
+                    <!-- Slide 22 -->
+                    <div class="carousel-slide">
+                        <img src="img/22.jpeg">
+                    </div>
+
+                    <!-- Slide 23 -->
+                    <div class="carousel-slide">
+                        <img src="img/23.jpeg">
+                    </div>
+
+                    <!-- Slide 24 -->
+                    <div class="carousel-slide">
+                        <img src="img/24.jpeg">
+                    </div>
+
+                    <!-- Slide 25 -->
+                    <div class="carousel-slide">
+                        <img src="img/25.jpeg">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <h2 class="section-title">Contact Us</h2>
+            <p class="section-subtitle">Get in touch for a free consultation and quote</p>
+
+            <div class="contact-container">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="icon">📧</div>
+                        <div>
+                            <h3>Email</h3>
+                            <p><a href="mailto:glphandyman66@gmail.com">glphandyman66@gmail.com</a></p>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="icon">📱</div>
+                        <div>
+                            <h3>Phone</h3>
+                            <p><a href="tel:845-499-6619">845-499-6619</a></p>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="icon">📍</div>
+                        <div>
+                            <h3>Address</h3>
+                            <p>9 N Amundsen Ln<br>Airmont, NY 10901</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="icon">⏰</div>
+                        <div>
+                            <h3>Business Hours</h3>
+                            <p>Monday - Saturday: 7:00 AM - 7:00 PM<br>Sunday: By appointment</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-map">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3007.1667547895877!2d-74.11977872345305!3d41.10116677133726!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c2e7e3e0d0c0d1%3A0x0!2s9%20N%20Amundsen%20Ln%2C%20Airmont%2C%20NY%2010901!5e0!3m2!1sen!2sus!4v1234567890123!5m2!1sen!2sus"
+                        allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p class="tagline">"Detail Makes the Difference."</p>
+            <p>&copy; 2026 GLP Handyman Inc. All rights reserved.</p>
+            <p>Professional Handyman Services in New York | Licensed & Insured</p>
+        </div>
+    </footer>
+
+    <script>
+        let currentSlideIndex = 0;
+        const totalSlides = 25;
+
+        // Initialize carousel
+        function initCarousel() {
+            updateSlideCounter();
+            createIndicators();
+            showSlide(currentSlideIndex);
+        }
+
+        // Create indicator dots
+        function createIndicators() {
+            const indicatorsContainer = document.getElementById('indicators');
+            for (let i = 0; i < totalSlides; i++) {
+                const indicator = document.createElement('div');
+                indicator.className = 'indicator';
+                if (i === 0) indicator.classList.add('active');
+                indicator.onclick = () => goToSlide(i);
+                indicatorsContainer.appendChild(indicator);
+            }
+        }
+
+        // Show specific slide
+        function showSlide(index) {
+            const wrapper = document.getElementById('carouselWrapper');
+            const indicators = document.querySelectorAll('.indicator');
+
+            // Update current slide index
+            currentSlideIndex = index;
+
+            // Ensure index is within bounds
+            if (currentSlideIndex >= totalSlides) currentSlideIndex = 0;
+            if (currentSlideIndex < 0) currentSlideIndex = totalSlides - 1;
+
+            // Move carousel
+            wrapper.style.transform = `translateX(-${currentSlideIndex * 100}%)`;
+
+            // Update indicators
+            indicators.forEach((indicator, i) => {
+                indicator.classList.toggle('active', i === currentSlideIndex);
+            });
+
+            // Update counter
+            updateSlideCounter();
+        }
+
+        // Change slide (next/prev)
+        function changeSlide(direction) {
+            showSlide(currentSlideIndex + direction);
+        }
+
+        // Go to specific slide
+        function goToSlide(index) {
+            showSlide(index);
+        }
+
+        // Update slide counter
+        function updateSlideCounter() {
+            document.getElementById('currentSlide').textContent = currentSlideIndex + 1;
+            document.getElementById('totalSlides').textContent = totalSlides;
+        }
+
+        // Auto-play carousel (optional)
+        let autoPlayInterval;
+        function startAutoPlay() {
+            autoPlayInterval = setInterval(() => {
+                changeSlide(1);
+            }, 5000); // Change slide every 5 seconds
+        }
+
+        function stopAutoPlay() {
+            clearInterval(autoPlayInterval);
+        }
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowLeft') changeSlide(-1);
+            if (e.key === 'ArrowRight') changeSlide(1);
+        });
+
+        // Touch swipe support for mobile
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        document.getElementById('carouselWrapper').addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+        });
+
+        document.getElementById('carouselWrapper').addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+        });
+
+        function handleSwipe() {
+            if (touchEndX < touchStartX - 50) changeSlide(1); // Swipe left
+            if (touchEndX > touchStartX + 50) changeSlide(-1); // Swipe right
+        }
+
+        // Mobile Menu Toggle
+        function toggleMenu() {
+            const menu = document.getElementById('navMenu');
+            menu.classList.toggle('active');
+        }
+
+        // Close menu when clicking on a link
+        document.querySelectorAll('#navMenu a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.getElementById('navMenu').classList.remove('active');
+            });
+        });
+
+        // Initialize carousel on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            initCarousel();
+            // Uncomment to enable auto-play
+            // startAutoPlay();
+        });
+
+        // Pause auto-play when user interacts
+        document.querySelector('.carousel-container').addEventListener('mouseenter', stopAutoPlay);
+        document.querySelector('.carousel-container').addEventListener('mouseleave', startAutoPlay);
+    </script>
+</body>
+
+</html>
